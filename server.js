@@ -1,17 +1,25 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const { auth } = require("./controllers/auth");
 const createModel = require("./model");
+const cors = require("cors");
+const { user } = require("./controllers/user");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 async function init() {
-  const model = createModel();
+  const model = await createModel();
 
   // Define middleware here
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
+  app.use(cors());
+
+  auth(app, model);
+  user(app, model);
+
   // Serve up static assets (usually on heroku)
   if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));

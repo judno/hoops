@@ -9,7 +9,7 @@ function defineUser(sequelize) {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      password: {
+      facebookId: {
         type: DataTypes.STRING,
         allowNull: false,
       },
