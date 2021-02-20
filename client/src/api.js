@@ -24,7 +24,8 @@ export function getLocationSuggestions(searchTerm, userLocation) {
     });
 }
 
-const API_HOST = "http://localhost:3001";
+const API_HOST =
+  process.env.NODE_ENV === "production" ? "" : "http://localhost:3001";
 
 export async function getUserInfo() {
   const token = getToken();
