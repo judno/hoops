@@ -12,7 +12,6 @@ export function AddHoop() {
 
   return (
     <div className="content">
-      <h1 className="text-4xl font-bold py-5">Add hoop</h1>
       <div className="flex justify-between gap-5">
         <form
           className="w-2/5 flex flex-col gap-3"
@@ -24,8 +23,14 @@ export function AddHoop() {
               description,
               location,
             });
+
+            setName("");
+            setLocation(null);
+            setDescription("");
           }}
         >
+          <h1 className="text-2xl font-bold">Add hoop</h1>
+
           <TextInput
             label="Name"
             value={name}
@@ -37,7 +42,9 @@ export function AddHoop() {
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
-          <button type="submit">Add</button>
+          <button type="submit" className="bg-gray-400 py-2 rounded">
+            Add
+          </button>
         </form>
         <Map
           style="mapbox://styles/judno/ckldm0nzm30on17mdzt6zl7qx"

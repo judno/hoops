@@ -5,7 +5,7 @@ import { login } from "./auth";
 
 export function Header() {
   return (
-    <div className="bg-gray-800">
+    <div className="bg-gray-800 mb-5">
       <nav className="content flex h-20 items-center justify-between px-5 text-white  mb-8">
         <div className="flex gap-x-10">
           <Link to="/">
