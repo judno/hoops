@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { AddHoop } from "./AddHoop";
 import { Header } from "./Header";
 import { Home } from "./Home";
 
@@ -7,6 +8,9 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
+        <Route path="/add">
+          <AddHoop />
+        </Route>
         <Route path="/">
           <Home />
         </Route>

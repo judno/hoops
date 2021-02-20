@@ -1,21 +1,29 @@
 const { DataTypes } = require("sequelize");
 
-function defineUser(sequelize) {
+function defineHoop(sequelize) {
   return sequelize.define(
-    "User",
+    "Hoop",
     {
       // Model attributes are defined here
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      facebookId: {
+      description: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      locationName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      picture: {
-        type: DataTypes.STRING,
-        allowNull: true,
+      latitude: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
+      },
+      longitude: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
       },
     },
     {
@@ -24,4 +32,4 @@ function defineUser(sequelize) {
   );
 }
 
-module.exports = defineUser;
+module.exports = defineHoop;

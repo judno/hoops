@@ -5,12 +5,14 @@ import { login } from "./auth";
 
 export function Header() {
   return (
-    <div className="bg-blue-800">
+    <div className="bg-gray-800">
       <nav className="content flex h-20 items-center justify-between px-5 text-white  mb-8">
         <div className="flex gap-x-10">
-          <h1 className="text-xl font-semibold">Hoops!</h1>
+          <Link to="/">
+            <h1 className="text-xl font-semibold">Hoops!</h1>
+          </Link>
           <div className="flex gap-x-6 text-lg">
-            <Link to="/">Home</Link>
+            <Link to="/add">Add</Link>
           </div>
         </div>
         <UserStatus />
@@ -29,7 +31,12 @@ function UserStatus() {
   }, []);
 
   if (user) {
-    return <div>{user.name}</div>;
+    return (
+      <div className="flex items-center gap-3">
+        <img className="rounded-full" src={user.picture} />
+        <div>{user.name}</div>
+      </div>
+    );
   }
 
   return (

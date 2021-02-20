@@ -5,6 +5,7 @@ const { auth } = require("./controllers/auth");
 const createModel = require("./model");
 const cors = require("cors");
 const { user } = require("./controllers/user");
+const { hoop } = require("./controllers/hoop");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -19,6 +20,7 @@ async function init() {
 
   auth(app, model);
   user(app, model);
+  hoop(app, model);
 
   // Serve up static assets (usually on heroku)
   if (process.env.NODE_ENV === "production") {
